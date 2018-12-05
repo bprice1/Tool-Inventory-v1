@@ -24,8 +24,6 @@ const addToolHandler = e => {
   );
 
   tool.push(newTool);
-
-  displayToolData();
 };
 
 const displayToolData = toolArr => {
