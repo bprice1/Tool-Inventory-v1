@@ -14,16 +14,42 @@ const Tool = function Tool(desc, quantity, value, total) {
   this.total = total;
 };
 
+// Tool.prototype.getTotal = function getTotal() {
+//   const total = this.quantity * this.value;
+//   this.total.push(total);
+// };
+
 const addToolHandler = e => {
   e.preventDefault();
 
+  const getQuantityInput = () => {
+    const quantityInput = parseInt(
+      document.getElementById("quantityInput").value,
+      10
+    );
+    return quantityInput;
+  };
+
+  const getValueInput = () => {
+    const valueInput = parseFloat(
+      document.getElementById("valueInput").value,
+      10
+    );
+    return valueInput;
+  };
+
+  const totalInput = getValueInput() * getQuantityInput();
+
   const newTool = new Tool(
     document.querySelector("#toolInput").value,
-    document.querySelector("#quantityInput").value,
-    document.querySelector("#valueInput").value
+    getQuantityInput(),
+    getValueInput(),
+    totalInput
   );
 
   tool.push(newTool);
+
+  console.log(tool);
 };
 
 const displayToolData = toolArr => {
