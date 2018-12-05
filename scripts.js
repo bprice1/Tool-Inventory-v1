@@ -1,4 +1,3 @@
-// const form = document.querySelector("form");
 const addTool = document.querySelector("#toolForm");
 const tool = [];
 
@@ -8,10 +7,11 @@ const tool = [];
  * @param {string} Tool.quantity - Tool quantity
  * @param {string} Tool.value - Tool value
  */
-const Tool = function Tool(desc, quantity, value) {
+const Tool = function Tool(desc, quantity, value, total) {
   this.desc = desc;
   this.quantity = quantity;
   this.value = value;
+  this.total = total;
 };
 
 const addToolHandler = e => {
@@ -25,7 +25,28 @@ const addToolHandler = e => {
 
   tool.push(newTool);
 
-  console.log(tool);
+  displayToolData();
+};
+
+const displayToolData = toolArr => {
+  const trows = document.querySelectorAll("tbody tr");
+  trows.forEach(row => row.remove());
+
+  const tbody = document.querySelector("tbody");
+  toolArr.forEach(g => {
+    const growContentClone = document.importNode(
+      document.querySelector("#tool-row").content,
+      true
+    );
+
+    const tdArr = growContentClone.querySelectorAll("td");
+
+    tdArr[0].textContent = g.desc;
+    tdArr[1].textContent = g.quantity;
+    tdArr[2].textContent = g.value;
+    tdArr[3].textContent = g.total;
+    tbody.appendChild(growContentClone);
+  });
 };
 
 // /**
