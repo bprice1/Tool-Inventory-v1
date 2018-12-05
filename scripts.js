@@ -24,9 +24,9 @@ const addToolHandler = e => {
   );
 
   tool.push(newTool);
-};
 
-console.log(tool);
+  console.log(tool);
+};
 
 // /**
 //  * Pull data for the tool input.
