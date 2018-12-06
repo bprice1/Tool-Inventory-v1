@@ -77,8 +77,6 @@ const addToolHandler = e => {
   tool.push(newTool);
 
   displayToolData();
-
-  console.log(tool);
 };
 
 // /**
