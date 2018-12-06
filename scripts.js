@@ -14,10 +14,26 @@ const Tool = function Tool(desc, quantity, value, total) {
   this.total = total;
 };
 
-// Tool.prototype.getTotal = function getTotal() {
-//   const total = this.quantity * this.value;
-//   this.total.push(total);
-// };
+const displayToolData = () => {
+  const trows = document.querySelectorAll("tbody tr");
+  trows.forEach(row => row.remove());
+
+  const tbody = document.querySelector("tbody");
+  tool.forEach(g => {
+    const growContentClone = document.importNode(
+      document.querySelector("#tool-row").content,
+      true
+    );
+
+    const tdArr = growContentClone.querySelectorAll("td");
+
+    tdArr[0].textContent = g.desc;
+    tdArr[1].textContent = g.quantity;
+    tdArr[2].textContent = g.value;
+    tdArr[3].textContent = g.total;
+    tbody.appendChild(growContentClone);
+  });
+};
 
 const addToolHandler = e => {
   e.preventDefault();
@@ -60,28 +76,9 @@ const addToolHandler = e => {
   document.getElementById("toolForm").reset();
   tool.push(newTool);
 
+  displayToolData();
+
   console.log(tool);
-};
-
-const displayToolData = toolArr => {
-  const trows = document.querySelectorAll("tbody tr");
-  trows.forEach(row => row.remove());
-
-  const tbody = document.querySelector("tbody");
-  toolArr.forEach(g => {
-    const growContentClone = document.importNode(
-      document.querySelector("#tool-row").content,
-      true
-    );
-
-    const tdArr = growContentClone.querySelectorAll("td");
-
-    tdArr[0].textContent = g.desc;
-    tdArr[1].textContent = g.quantity;
-    tdArr[2].textContent = g.value;
-    tdArr[3].textContent = g.total;
-    tbody.appendChild(growContentClone);
-  });
 };
 
 // /**
