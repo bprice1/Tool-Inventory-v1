@@ -79,20 +79,4 @@ const addToolHandler = e => {
   displayToolData();
 };
 
-// /**
-//  * Create function to push object data into a data Array and reset form.
-//  * @param {Object} data - Tool Object.
-//  * @param {string} tool- Tool description
-//  * @param {number} quantity - Quantity of tool on hand.
-//  * @param {number} value - Value of tool
-//  */
-// const controller = function submit() {
-//   data.push({
-//     tool: getToolInput(),
-//     quantity: getQuantityInput(),
-//     value: getValueInput()
-//   });
-//   document.getElementById("toolForm").reset();
-// };
-
 addTool.addEventListener("submit", addToolHandler);
