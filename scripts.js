@@ -72,7 +72,10 @@ const addToolHandler = e => {
     getValueInput(),
     totalInput
   );
-
+  // try to color row if there if the tool value is greater than 100 and if it less display green
+  if (tool.valueInput > 100) {
+    document.getElementById("tbody tr").style.color = "red";
+  } else document.getElementById("tbody tr").style.color = "green";
   document.getElementById("toolForm").reset();
   tool.push(newTool);
 
