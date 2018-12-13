@@ -1,12 +1,3 @@
-.red{
-    color: red;
-
-<<<<<<< HEAD
-}
-.green{
-    color:green;
-    
-=======
 table {
   border-collapse: collapse;
   width: 75%;
@@ -34,5 +25,11 @@ thead {
   padding: 8px;
   border-style: inset;
   width: 100px;
->>>>>>> ac72185c5888a9571d792c00ef88f562eccb1cdb
 }
+
+.red{
+    color: red;
+}
+
+.green{
+    color:green;

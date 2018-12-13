@@ -83,8 +83,9 @@ const addToolHandler = e => {
 
   displayToolData();
 
-  //change color based on value 
-  const length = document.getElementById("toolTable").getElementsByTagName("tr").length;
+  // change color based on value
+  const length = document.getElementById("toolTable").getElementsByTagName("tr")
+    .length;
   for (let i = 0; i <= length; i++) {
     if (i === length) {
       if (colorValue > 100) {

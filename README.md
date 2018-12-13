@@ -1,11 +1,10 @@
-# misra-js-starter
+Tool Inventory v2
+Authors: Brian Price and Micheal Ferguson
 
-A good starting point for any JS work done by students in my JS courses.
+This project is to keep an accurate inventory of high value items in a shop environment.
 
-This is obviously a very opinionated starter repo for JS projects.
+Solution Benefits:
+Version 2 of this project has refactored the code to streamline and use function constructors for the data. Seeing the original project did not have functional table data viewable, getting a fully functional program is the first priority.  This has be implemented by creating objects or arrays for each item and putting them into a mock database.  In addition, JavaScript will be used to store the Strings placed into the Description and convert the value into an integer to calculate the running total.
 
-Its intent is to introduce students to some commonly used tools for professional JS development within VS Code.
-
-It includes some VS Code extensions and linting with Airbnb style guide and Stylelint for CSS linting.
-
-_See 'fonts' folder to install some nice fonts that should work well._
+Solution Limitations and Possible Extensions:
+This solution does not have any persistent storage built into it in its current state.  Upon refreshing the webpage, all data will be lost.  In addition, this system is built based off of purchase price instead of estimated value.  Depreciation of tools can be a complicated value that fluctuates depending on the market.  If desired, estimated value could be used instead of purchase price, but purchase price works better for my use.
