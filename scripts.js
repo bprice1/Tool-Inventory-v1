@@ -13,7 +13,8 @@ const Tool = function Tool(desc, quantity, value, total) {
   this.value = value;
   this.total = total;
 };
-
+let colorValue = "";
+let num = 0;
 const displayToolData = () => {
   const trows = document.querySelectorAll("tbody tr");
   trows.forEach(row => row.remove());
@@ -31,6 +32,8 @@ const displayToolData = () => {
     tdArr[1].textContent = g.quantity;
     tdArr[2].textContent = g.value;
     tdArr[3].textContent = g.total;
+    colorValue = g.value;
+    num += 1;
     tbody.appendChild(growContentClone);
   });
 };
@@ -72,14 +75,23 @@ const addToolHandler = e => {
     getValueInput(),
     totalInput
   );
-  // try to color row if there if the tool value is greater than 100 and if it less display green
-  if (tool.valueInput > 100) {
-    document.getElementById("tbody tr").style.color = "red";
-  } else document.getElementById("tbody tr").style.color = "green";
+
+  // // try to color row if there if the tool value is greater than 100 and if it less display green
+
   document.getElementById("toolForm").reset();
   tool.push(newTool);
 
   displayToolData();
+
+  //change color based on value 
+  const length = document.getElementById("toolTable").getElementsByTagName("tr").length;
+  for (let i = 0; i <= length; i++) {
+    if (i === length) {
+      if (colorValue > 100) {
+        this.document.querySelector("tbody tr").style.color = "red";
+      } else this.document.querySelector("tbody tr").style.color = "green";
+    }
+  }
 };
 
 addTool.addEventListener("submit", addToolHandler);
