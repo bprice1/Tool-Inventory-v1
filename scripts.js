@@ -103,15 +103,22 @@ const toolFormHandler = e => {
 
   displayToolData();
 
-  /** This is the only error showing, but I didn't want to mess with it as it is the color changing code based on value we couldn't get to work. */
-  const length = document.getElementsByTagName("tr").length;
-  for (let i = 0; i <= length; i += 1) {
-    if (i === length) {
-      if (colorValue > 1000) {
-        this.document.querySelector("tbody tr").style.color = "red";
-      } else this.document.querySelector("tbody tr").style.color = "green";
+  // Adjust colors for '#t-value' where the 'total value' is > 1000.
+  const tvalues = document.querySelectorAll("#tool-total");
+  tvalues.forEach(tvalue => {
+    // Get this value as integer
+    const v = Number.parseInt(tvalue.textContent, 10);
+
+    if (v > 1000) {
+      // Add a class to the parent element - <tr>
+      console.log(tvalue.parentElement.classList);
+      tvalue.parentElement.classList.add("is-high-value");
+    } else {
+      console.log(tvalue.parentElement.classList);
+
+      tvalue.parentElement.classList.add("is-normal-value");
     }
-  }
+  });
 };
 
 toolForm.addEventListener("submit", toolFormHandler);
