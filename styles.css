@@ -26,3 +26,11 @@ thead {
   border-style: inset;
   width: 100px;
 }
+
+.is-high-value {
+  color: red;
+}
+
+.is-normal-value {
+  color: green;
+}
