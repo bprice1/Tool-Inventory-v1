@@ -111,11 +111,8 @@ const toolFormHandler = e => {
 
     if (v > 1000) {
       // Add a class to the parent element - <tr>
-      console.log(tvalue.parentElement.classList);
       tvalue.parentElement.classList.add("is-high-value");
     } else {
-      console.log(tvalue.parentElement.classList);
-
       tvalue.parentElement.classList.add("is-normal-value");
     }
   });
