@@ -2,7 +2,7 @@ const addTool = document.querySelector("#toolForm");
 const tool = [];
 let quantityTotal = 0;
 let valueTotal = 0;
-let number = 0;
+let colorValue = "";
 
 /** Function constructor to build tool array.
  * @param {Object} Tool - Tool
@@ -17,7 +17,6 @@ const Tool = function Tool(desc, quantity, value, total) {
   this.total = total;
 };
 
-let colorValue = "";
 const displayToolData = () => {
   const trows = document.querySelectorAll("tbody tr");
   trows.forEach(row => row.remove());
@@ -36,7 +35,6 @@ const displayToolData = () => {
     tdArr[2].textContent = g.value;
     tdArr[3].textContent = g.total;
     colorValue = g.value;
-    number += 1;
     tbody.appendChild(growContentClone);
   });
 };
@@ -44,8 +42,7 @@ const displayToolData = () => {
 const addToolHandler = e => {
   e.preventDefault();
 
-  /**
-   * Pull data for quantity input and convert it to an int.
+  /** Pull data for quantity input and convert it to an int.
    * @param {number} - Pull data from ElementID and convert to int.
    * @return {number} - Returns quantityInput as integer number.
    */
@@ -57,15 +54,7 @@ const addToolHandler = e => {
     return quantityInput;
   };
 
-  // const getQuantityTotal = function getQuantityTotal() {
-  //   let quantityTotal;
-  //   quantityTotal += getQuantityInput();
-  //   quantityTotal = parseInt(quantityTotal, 10);
-  //   return quantityTotal;
-  // };
-
-  /**
-   * Pull data for value and converting it to a floating point.
+  /** Pull data for value and converting it to a floating point.
    * @param {number} - Pull data from ElementID and convert to floating point.
    * @return {number} - Returns valueInput as Floating Point.
    */
@@ -86,12 +75,20 @@ const addToolHandler = e => {
     totalInput
   );
 
+  /** Total quantities pulled from inputs.
+   * @param {number} - Total quantities pulled from inputs.
+   * @return {number} - Returns quantityTotal.
+   */
   const getQuantityTotal = function getQuantityTotal() {
     quantityTotal += getQuantityInput();
     quantityTotal = parseInt(quantityTotal, 10);
     return quantityTotal;
   };
 
+  /** Total values pulled from inputs.
+   * @param {number} - Total values pulled from inputs.
+   * @return {number} - Returns valueTotal.
+   */
   const getValueTotal = function getValueTotal() {
     valueTotal += totalInput;
     valueTotal = parseFloat(valueTotal, 10);
@@ -106,12 +103,11 @@ const addToolHandler = e => {
 
   displayToolData();
 
-  // change color based on value
-  const length = document.getElementById("toolTable").getElementsByTagName("tr")
-    .length;
+  /** This is the only error showing, but I didn't want to mess with it as it is the color changing code based on value we couldn't get to work. */
+  const length = document.getElementsByTagName("tr").length;
   for (let i = 0; i <= length; i += 1) {
     if (i === length) {
-      if (colorValue > 100) {
+      if (colorValue > 1000) {
         this.document.querySelector("tbody tr").style.color = "red";
       } else this.document.querySelector("tbody tr").style.color = "green";
     }
