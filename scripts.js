@@ -106,8 +106,6 @@ const addToolHandler = e => {
 
   displayToolData();
 
-  console.log(tool);
-
   // change color based on value
   const length = document.getElementById("toolTable").getElementsByTagName("tr")
     .length;
