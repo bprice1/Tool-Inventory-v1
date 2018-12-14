@@ -1,5 +1,8 @@
 const addTool = document.querySelector("#toolForm");
 const tool = [];
+let quantityTotal = 0;
+let valueTotal = 0;
+let number = 0;
 
 /** Function constructor to build tool array.
  * @param {Object} Tool - Tool
@@ -13,8 +16,8 @@ const Tool = function Tool(desc, quantity, value, total) {
   this.value = value;
   this.total = total;
 };
+
 let colorValue = "";
-let num = 0;
 const displayToolData = () => {
   const trows = document.querySelectorAll("tbody tr");
   trows.forEach(row => row.remove());
@@ -33,7 +36,7 @@ const displayToolData = () => {
     tdArr[2].textContent = g.value;
     tdArr[3].textContent = g.total;
     colorValue = g.value;
-    num += 1;
+    number += 1;
     tbody.appendChild(growContentClone);
   });
 };
@@ -53,6 +56,13 @@ const addToolHandler = e => {
     );
     return quantityInput;
   };
+
+  // const getQuantityTotal = function getQuantityTotal() {
+  //   let quantityTotal;
+  //   quantityTotal += getQuantityInput();
+  //   quantityTotal = parseInt(quantityTotal, 10);
+  //   return quantityTotal;
+  // };
 
   /**
    * Pull data for value and converting it to a floating point.
@@ -76,17 +86,32 @@ const addToolHandler = e => {
     totalInput
   );
 
-  // // try to color row if there if the tool value is greater than 100 and if it less display green
+  const getQuantityTotal = function getQuantityTotal() {
+    quantityTotal += getQuantityInput();
+    quantityTotal = parseInt(quantityTotal, 10);
+    return quantityTotal;
+  };
+
+  const getValueTotal = function getValueTotal() {
+    valueTotal += totalInput;
+    valueTotal = parseFloat(valueTotal, 10);
+    return valueTotal;
+  };
+
+  document.getElementById("tquantity").innerHTML = getQuantityTotal();
+  document.getElementById("tvalue").innerHTML = getValueTotal();
 
   document.getElementById("toolForm").reset();
   tool.push(newTool);
 
   displayToolData();
 
+  console.log(tool);
+
   // change color based on value
   const length = document.getElementById("toolTable").getElementsByTagName("tr")
     .length;
-  for (let i = 0; i <= length; i++) {
+  for (let i = 0; i <= length; i += 1) {
     if (i === length) {
       if (colorValue > 100) {
         this.document.querySelector("tbody tr").style.color = "red";
