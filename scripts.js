@@ -103,7 +103,7 @@ const addToolHandler = e => {
 
   displayToolData();
 
-  // change color based on value
+  /** This is the only error showing, but I didn't want to mess with it as it is the color changing code based on value we couldn't get to work. */
   const length = document.getElementsByTagName("tr").length;
   for (let i = 0; i <= length; i += 1) {
     if (i === length) {
