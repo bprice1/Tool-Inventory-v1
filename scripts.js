@@ -1,4 +1,4 @@
-const addTool = document.querySelector("#toolForm");
+const toolForm = document.querySelector("#tool-form");
 const tool = [];
 let quantityTotal = 0;
 let valueTotal = 0;
@@ -39,7 +39,7 @@ const displayToolData = () => {
   });
 };
 
-const addToolHandler = e => {
+const toolFormHandler = e => {
   e.preventDefault();
 
   /** Pull data for quantity input and convert it to an int.
@@ -48,7 +48,7 @@ const addToolHandler = e => {
    */
   const getQuantityInput = () => {
     const quantityInput = parseInt(
-      document.getElementById("quantityInput").value,
+      document.querySelector("#quantity-input").value,
       10
     );
     return quantityInput;
@@ -60,7 +60,7 @@ const addToolHandler = e => {
    */
   const getValueInput = () => {
     const valueInput = parseFloat(
-      document.getElementById("valueInput").value,
+      document.querySelector("#value-input").value,
       10
     );
     return valueInput;
@@ -69,7 +69,7 @@ const addToolHandler = e => {
   const totalInput = getValueInput() * getQuantityInput();
 
   const newTool = new Tool(
-    document.querySelector("#toolInput").value,
+    document.querySelector("#tool-input").value,
     getQuantityInput(),
     getValueInput(),
     totalInput
@@ -95,10 +95,10 @@ const addToolHandler = e => {
     return valueTotal;
   };
 
-  document.getElementById("tquantity").innerHTML = getQuantityTotal();
-  document.getElementById("tvalue").innerHTML = getValueTotal();
+  document.querySelector("#t-quantity").innerHTML = getQuantityTotal();
+  document.querySelector("#t-value").innerHTML = getValueTotal();
 
-  document.getElementById("toolForm").reset();
+  toolForm.reset();
   tool.push(newTool);
 
   displayToolData();
@@ -114,4 +114,4 @@ const addToolHandler = e => {
   }
 };
 
-addTool.addEventListener("submit", addToolHandler);
+toolForm.addEventListener("submit", toolFormHandler);
