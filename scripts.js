@@ -95,8 +95,8 @@ const toolFormHandler = e => {
     return valueTotal;
   };
 
-  document.querySelector("#t-quantity").innerHTML = getQuantityTotal();
-  document.querySelector("#t-value").innerHTML = getValueTotal();
+  document.querySelector("#t-quantity").textContent = getQuantityTotal();
+  document.querySelector("#t-value").textContent = getValueTotal();
 
   toolForm.reset();
   tool.push(newTool);
