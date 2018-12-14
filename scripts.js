@@ -3,6 +3,7 @@ const tool = [];
 let quantityTotal = 0;
 let valueTotal = 0;
 let number = 0;
+let colorValue = "";
 
 /** Function constructor to build tool array.
  * @param {Object} Tool - Tool
@@ -17,7 +18,6 @@ const Tool = function Tool(desc, quantity, value, total) {
   this.total = total;
 };
 
-let colorValue = "";
 const displayToolData = () => {
   const trows = document.querySelectorAll("tbody tr");
   trows.forEach(row => row.remove());
@@ -109,11 +109,10 @@ const addToolHandler = e => {
   console.log(tool);
 
   // change color based on value
-  const length = document.getElementById("toolTable").getElementsByTagName("tr")
-    .length;
+  const length = document.getElementsByTagName("tr").length;
   for (let i = 0; i <= length; i += 1) {
     if (i === length) {
-      if (colorValue > 100) {
+      if (colorValue > 1000) {
         this.document.querySelector("tbody tr").style.color = "red";
       } else this.document.querySelector("tbody tr").style.color = "green";
     }
