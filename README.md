@@ -1,5 +1,5 @@
 Tool Inventory v2
-Authors: Brian Price and Micheal Ferguson
+Authors: Brian Price
 
 This project is to keep an accurate inventory of high value items in a shop environment.
 
